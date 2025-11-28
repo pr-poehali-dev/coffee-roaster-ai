@@ -24,6 +24,14 @@ const Index = () => {
     console.log("Form submitted:", formData);
   };
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.querySelector(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-secondary/30">
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-border">
@@ -32,22 +40,22 @@ const Index = () => {
             AI Roaster
           </div>
           <nav className="hidden md:flex gap-8">
-            <a href="#hero" className="text-sm font-medium hover:text-accent transition-colors">
+            <a href="#hero" onClick={(e) => scrollToSection(e, '#hero')} className="text-sm font-medium hover:text-accent transition-colors cursor-pointer">
               Главная
             </a>
-            <a href="#benefits" className="text-sm font-medium hover:text-accent transition-colors">
+            <a href="#benefits" onClick={(e) => scrollToSection(e, '#benefits')} className="text-sm font-medium hover:text-accent transition-colors cursor-pointer">
               Преимущества
             </a>
-            <a href="#specs" className="text-sm font-medium hover:text-accent transition-colors">
+            <a href="#specs" onClick={(e) => scrollToSection(e, '#specs')} className="text-sm font-medium hover:text-accent transition-colors cursor-pointer">
               Характеристики
             </a>
-            <a href="#testimonials" className="text-sm font-medium hover:text-accent transition-colors">
+            <a href="#testimonials" onClick={(e) => scrollToSection(e, '#testimonials')} className="text-sm font-medium hover:text-accent transition-colors cursor-pointer">
               Отзывы
             </a>
-            <a href="#faq" className="text-sm font-medium hover:text-accent transition-colors">
+            <a href="#faq" onClick={(e) => scrollToSection(e, '#faq')} className="text-sm font-medium hover:text-accent transition-colors cursor-pointer">
               FAQ
             </a>
-            <a href="#contact" className="text-sm font-medium hover:text-accent transition-colors">
+            <a href="#contact" onClick={(e) => scrollToSection(e, '#contact')} className="text-sm font-medium hover:text-accent transition-colors cursor-pointer">
               Контакты
             </a>
           </nav>
